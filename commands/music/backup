@@ -1,0 +1,58 @@
+// LYRICS //
+var str = 'abcdefghijkl';
+console.log(str.match(/.{1,2000}/g));
+
+const { MessageEmbed } = require('discord.js');
+const Genius = require("genius-lyrics");
+        const Client = new Genius.Client(
+            "JHAwunZSHhRJyiQ1qExgCNTPy0gm7IWi_wnN7ABpuGegflKPgXrjk7FzEQAsXkoO"
+        );
+            
+module.exports = {
+    name: 'lyrics',
+    aliases: ['ly'],
+    category: 'Music',
+    description: 'Lyrics Command for the Music',
+    usage: `{prefix}lyrics`,
+    execute: async (client, message, args) => {
+
+        const searches = args.join(" ");
+        const songs = await Client.songs.search(searches);
+
+
+        const firstSong = songs[0];
+
+         let lyrics = await firstSong.lyrics();
+
+        const embed = new MessageEmbed()
+        .setColor('#0000FF')
+        .setTitle('Lyrics:')
+        .setDescription(`${lyrics.slice(0, 2048)}`)
+        .setFooter("Thanks to Vex[R]#0001 for his Library")
+        message.channel.send(embed);
+
+    }
+    };
+    //
+    // QUEUE //
+    module.exports = {
+    name: 'queue',
+    aliases: [],
+    category: 'Music',
+    utilisation: '{prefix}queue',
+
+    execute(client, message) {
+        if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
+
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`${client.emotes.error} - You are not in the same voice channel !`);
+
+        const queue = client.player.getQueue(message);
+
+        if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No songs currently playing !`);
+
+        message.channel.send(`**Server queue - ${message.guild.name} ${client.emotes.queue} ${client.player.getQueue(message).loopMode ? '(looped)' : ''}**\nCurrent : ${queue.playing.title} | ${queue.playing.author}\n\n` + (queue.tracks.map((track, i) => {
+            return `**#${i + 1}** - ${track.title} | ${track.author} (requested by : ${track.requestedBy.username})`
+        }).slice(0, 5).join('\n') + `\n\n${queue.tracks.length > 5 ? `And **${queue.tracks.length - 5}** other songs...` : `In the playlist **${queue.tracks.length}** song(s)...`}`));
+    },
+};
+// // 
