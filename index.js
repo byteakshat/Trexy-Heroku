@@ -11,7 +11,15 @@ const { Player } = require('discord-player');
 client.player = new Player(client,
 { leaveOnEndCooldown: 200000,
 autoSelfDeaf: false,
-leaveOnEmptyCooldown: 200000 });
+leaveOnEmptyCooldown: 200000,
+ytdlDownloadOptions: {
+        requestOptions: {
+            headers: {
+                cookie: "AIzaSyAzdrs-CuiepXYhf_ze1RAA2PFbXBAJm7I"
+            }
+        }
+}
+    });
 client.config = require('./config/bot');
 client.emotes = client.config.emojis;
 client.filters = client.config.filters;
