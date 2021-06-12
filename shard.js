@@ -1,12 +1,10 @@
-const {ShardingManager} = require('discord.js');
-const config = require('./config/bot.js');
-const manager = new ShardingManager("./index.js", {
-  token: client.config.discord.token
-  totalShards: "2"
-});
+const { ShardingManager } = require("discord.js")
+const { token } = "NzU3NjU2MDczNjU3MjUzOTI5.X2jkNA.i0d2428KsjkbEtp6x_QCT8gBigI"
 
-manager.on("shardCreate", async (shard) => {
-  console.log(`[${new Date().toString().split(" ", 5).join(" ")}] Launched shard #$(shard.id)`);
+const manager = new ShardingManager("./bot.js", {
+  token,
+  totalShards: 5
 });
 
 manager.spawn();
+manager.on("shardCreate", shard => console.log(`Shard #${shard.id} is online.`));
