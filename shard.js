@@ -1,7 +1,7 @@
 const { ShardingManager } = require("discord.js")
 const { token } = "NzU3NjU2MDczNjU3MjUzOTI5.X2jkNA.i0d2428KsjkbEtp6x_QCT8gBigI"
 
-const manager = new ShardingManager("./bot.js", {
+const manager = new ShardingManager("./index.js", {
   token,
   totalShards: 5
 });
