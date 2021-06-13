@@ -1,5 +1,6 @@
 const fs = require('fs');
 const discord = require('discord.js');
+const db = require('quick.db')
 const path = require("path");
 
 const client = new discord.Client({ disableMentions: 'everyone' });
