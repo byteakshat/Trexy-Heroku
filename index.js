@@ -9,32 +9,6 @@ const client = new discord.Client({ disableMentions: 'everyone' });
 const keepAlive = require('./server.js');
 const { Player } = require('discord-player');
 
-const { MessageEmbed } = require('discord.js');
-
-client.on('guildCreate', function(guild) {
-  let embed = new MessageEmbed()
-  .setTitle('Trexy Joined A Guild.')
-  .addField('Guild Name', guild.name, true)
-  .addField('Guild Member Count', guild.members.cache.size, true)
-  .addField('Guild ID', guild.id, true)
-  .addField('Guild Owner Name', guild.owner.user.username, true)
-  .setTimestamp()
-  .setColor("#eb7434")
-  client.channels.cache.get('847084612819484692').send(embed)
-})
-
-client.on('guildDelete', function(guild) {
-  let embed = new MessageEmbed()
-  .setTitle('Trexy Left A Guild.')
-  .addField('Guild Name', guild.name, true)
-  .addField('Guild Member Count', guild.members.cache.size, true)
-  .addField('Guild ID', guild.id, true)
-  .addField('Guild Owner Name', guild.owner.user.username, true)
-  .setTimestamp()
-  .setColor("#eb7434")
-  client.channels.cache.get('847084612819484692').send(embed)
-})
-
 client.player = new Player(client,
 { leaveOnEnd: false, 
 leaveOnEmpty: false,
