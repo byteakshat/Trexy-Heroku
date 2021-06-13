@@ -9,11 +9,9 @@ const keepAlive = require('./server.js');
 const { Player } = require('discord-player');
 
 client.player = new Player(client,
-{ leaveOnEndCooldown: 200000,
- leaveOnEnd: false, 
+{ leaveOnEnd: false, 
 leaveOnEmpty: false,
 autoSelfDeaf: false,
-leaveOnEmptyCooldown: 200000,
 ytdlDownloadOptions: {
         requestOptions: {
             headers: {
