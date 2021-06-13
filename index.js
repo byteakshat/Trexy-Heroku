@@ -8,7 +8,7 @@ const client = new discord.Client({ disableMentions: 'everyone' });
 const keepAlive = require('./server.js');
 const { Player } = require('discord-player');
 
-const { MessageEmbed } = require('discord.js);
+const { MessageEmbed } = require('discord.js');
 
 client.on('guildCreate', function(guild) {
   let embed = new MessageEmbed()
