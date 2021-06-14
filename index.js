@@ -12,6 +12,7 @@ const { Player } = require('discord-player');
 client.player = new Player(client,
 { leaveOnEnd: false, 
 leaveOnEmpty: false,
+enableLive: true,
 autoSelfDeaf: false,
 ytdlDownloadOptions: {
         requestOptions: {
