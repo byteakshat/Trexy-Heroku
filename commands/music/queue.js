@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "queue",
+  aliases: ['q'],
   category: 'Music',
   utilisation: '{prefix}queue',
   description: "Get all the song name which are in queue",
