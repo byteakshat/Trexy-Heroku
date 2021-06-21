@@ -1,3 +1,6 @@
+const player = require('discord-player');
+
+
 module.exports = {
   name: "autoplay",
   aliases: ['auto'],
