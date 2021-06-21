@@ -6,7 +6,7 @@ module.exports = {
   aliases: ['auto'],
   category: 'Music',
   utilisation: '{prefix}autoplay',
-  description: "Get all the song name which are in queue",
+  description: "Plays the song automatically after the queue get ends",
   execute: async (client, message, args) => {
 const queue = client.player.getQueue(message);
 
