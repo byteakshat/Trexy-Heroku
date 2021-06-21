@@ -8,7 +8,7 @@ module.exports = {
   utilisation: '{prefix}seek',
   description: "Forwards the song",
   execute: async (client, message, args) => {
-		const queue = this.client.player.getQueue(message);
+		const queue = client.player.getQueue(message);
 
 		const voice = message.member.voice.channel;
 		if (!voice){
