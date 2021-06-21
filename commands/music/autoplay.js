@@ -8,7 +8,7 @@ module.exports = {
   utilisation: '{prefix}autoplay',
   description: "Get all the song name which are in queue",
   execute: async  (message)  => {
-const queue = this.client.player.getQueue(message);
+const queue = client.player.getQueue(message);
 
 		const voice = message.member.voice.channel;
 		if (!voice){
@@ -20,7 +20,7 @@ const queue = this.client.player.getQueue(message);
 		}
 
 		// Gets the current song
-		await this.client.player.setAutoPlay(message, !queue.autoPlay);
+		await client.player.setAutoPlay(message, !queue.autoPlay);
         
 		// Send the embed in the current channel
 		message.channel.send(`${queue.autoPlay ? "ENABLED" : "DISABLED"}`);
