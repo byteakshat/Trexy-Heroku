@@ -7,7 +7,7 @@ module.exports = {
   category: 'Music',
   utilisation: '{prefix}autoplay',
   description: "Get all the song name which are in queue",
-  execute: async  (message)  => {
+  execute: async (client, message, args) => {
 const queue = client.player.getQueue(message);
 
 		const voice = message.member.voice.channel;
