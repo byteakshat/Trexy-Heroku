@@ -1,5 +1,5 @@
 const player = require('discord-player');
-
+const ms = require("ms");
 
 module.exports = {
   name: "seek",
