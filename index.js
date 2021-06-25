@@ -22,6 +22,7 @@ ytdlDownloadOptions: {
         }
 }
     });
+client.player.use("YOUTUBE_DL", require("@discord-player/downloader").Downloader);
 client.config = require('./config/bot');
 client.emotes = client.config.emojis;
 client.filters = client.config.filters;
