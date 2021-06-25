@@ -13,7 +13,9 @@ module.exports = {
         if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`${client.emotes.error} - You are not in the same voice channel !`);
 
         if (!args[0]) return message.channel.send(`${client.emotes.error} - Please indicate the title of a song !`);
-
+         
+         if (Util.isURL(args.join(" "))) return client.player.play(message, args.join(" "), { firstResult: true });
+         
         const tracks = await Util.ytSearch(args.join(" "), {
     user: message.author,
     player: client.player
