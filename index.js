@@ -44,7 +44,6 @@ fs.readdirSync('./commands').forEach(dirs => {
         client.commands.set(command.name.toLowerCase(), command);
     };
    }
- }
 
 const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
