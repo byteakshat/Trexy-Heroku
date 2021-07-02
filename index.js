@@ -38,8 +38,6 @@ fs.readdirSync('./commands').forEach(dirs => {
   if (message.content.startsWith(PREFIX)) {
     const args = message.content.slice(PREFIX.length).trim().split(/ +/);
   }
- }
-           }
            });
     for (const file of commands) {
         const command = require(`./commands/${dirs}/${file}`);
