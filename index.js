@@ -29,17 +29,6 @@ client.commands = new discord.Collection();
 
 fs.readdirSync('./commands').forEach(dirs => {
     const commands = fs.readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'));
- 
- client.on("message", async (message) => {
-  if (message.author.bot) return;
-  if (!message.guild) return;
-  let PREFIX = db.get(`prefix_${message.guild.id}`)
-  if(!PREFIX) PREFIX = client.config.discord.prefix;
-  if (message.content.startsWith(PREFIX)) {
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/);
-       const commandName = args.shift().toLowerCase();
-  }
-           };
     for (const file of commands) {
         const command = require(`./commands/${dirs}/${file}`);
         console.log(`Loading command ${file}`);
