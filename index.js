@@ -37,13 +37,13 @@ fs.readdirSync('./commands').forEach(dirs => {
   if(!PREFIX) PREFIX = client.config.discord.prefix;
   if (message.content.startsWith(PREFIX)) {
     const args = message.content.slice(PREFIX.length).trim().split(/ +/);
-
+  }
+ }
     for (const file of commands) {
         const command = require(`./commands/${dirs}/${file}`);
         console.log(`Loading command ${file}`);
         client.commands.set(command.name.toLowerCase(), command);
     };
-   }
 
 const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
