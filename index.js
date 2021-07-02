@@ -37,8 +37,10 @@ fs.readdirSync('./commands').forEach(dirs => {
   if(!PREFIX) PREFIX = client.config.discord.prefix;
   if (message.content.startsWith(PREFIX)) {
     const args = message.content.slice(PREFIX.length).trim().split(/ +/);
+       const commandName = args.shift().toLowerCase();
   }
-           });
+ }
+           };
     for (const file of commands) {
         const command = require(`./commands/${dirs}/${file}`);
         console.log(`Loading command ${file}`);
