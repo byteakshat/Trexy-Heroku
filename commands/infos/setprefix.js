@@ -3,9 +3,12 @@ const discord = require('discord.js')
 const client = new discord.Client()
 
 module.exports = {
-  name: "setprefix",
-  description: "Change the bot prefix for your server.",
-  async execute(message, args) {
+    name: 'about',
+    aliases: ['ab'],
+    category: 'Infos',
+    utilisation: '{prefix}about',
+
+    execute: async (client, message, args) => {
     if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You need to have 'manage server' permission to use that.")
     if(!args[0]) return message.channel.send("Please provide a new prefix for jingle!")
     
