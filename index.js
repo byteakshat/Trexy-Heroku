@@ -63,4 +63,4 @@ for (const file of player) {
 keepAlive();
 client.login(client.config.discord.token);
 }
-});
+ }
