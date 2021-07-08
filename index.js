@@ -15,7 +15,7 @@ client.player = new Player(client,
 leaveOnEmpty: false,
 enableLive: true,
 autoSelfDeaf: false,
-leaveOnEmptyCooldown: 200000
+leaveOnEmptyCooldown: 200000,
 ytdlDownloadOptions: {
         requestOptions: {
             headers: {
