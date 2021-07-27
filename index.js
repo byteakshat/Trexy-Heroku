@@ -64,7 +64,7 @@ client.on('message', async message => {
    const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
- if (command === ',bug') {
+ if (command === 'bug') {
         const person = message.author.username
         const userID = message.author.id
 
@@ -76,7 +76,7 @@ client.on('message', async message => {
             if (!bug) {
                 message.channel.send('You are attempting to send a bug report without listing a bug!')
             } else {
-                client.fetchUser(myID).then((user) => {
+                ClientUser.fetch(myID).then((user) => {
                     user.send(`${person} of ${message.guild.name} (Guild ID: ${message.guild.id}, User ID: ${userID}) reported the bug: ${bug}`);
                 });
                 message.channel.send('**Your bug was reported. If you abuse this feature you will be put on a blacklist and will be prevented from using this command.**');
