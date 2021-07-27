@@ -56,6 +56,9 @@ for (const file of player) {
     client.player.on(file.split(".")[0], event.bind(null, client));
 };
 
+client.on('message', async message => {
+    if (message.author.bot) return;
+
  if (command === ',bug') {
         const person = message.author.username
         const userID = message.author.id
