@@ -3,6 +3,8 @@ const discord = require('discord.js');
 const myID = '731420164628676640' 
 const db = require('quick.db')
 const path = require("path");
+const prefix = ','
+var lockedList = ['userID1', 'userID2']; //replace the userID stuff here with the ID's of the users you want to blacklist
 
 const client = new discord.Client({ disableMentions: 'everyone' });
  require('discord-buttons')(client);
