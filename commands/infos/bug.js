@@ -16,7 +16,7 @@ module.exports = {
 const receiver = client.user.cache.get("731420164628676640")
 
 const query = args.join(" ")
-if(!query) return message.channel.send(`usage: /`${prefix} <bug>/`.`)
+if(!query) return message.channel.send( `usage:` `${prefix} <bug>`)
 
 const report = new MessageEmbed()
 .setTitle("New Bug!")
