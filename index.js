@@ -58,6 +58,9 @@ for (const file of player) {
 
 client.on('message', async message => {
     if (message.author.bot) return;
+ 
+   const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
 
  if (command === ',bug') {
         const person = message.author.username
