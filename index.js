@@ -1,5 +1,6 @@
 const fs = require('fs');
 const discord = require('discord.js');
+const myID = '731420164628676640' 
 const db = require('quick.db')
 const path = require("path");
 
@@ -54,5 +55,26 @@ for (const file of player) {
     const event = require(`./player/${file}`);
     client.player.on(file.split(".")[0], event.bind(null, client));
 };
+
+ if (command === ',bug') {
+        const person = message.author.username
+        const userID = message.author.id
+
+        if (userID == lockedList) {
+            message.channel.send('***You have abused this feature before and as such have been put on a blacklist***')
+        } else {
+            let bug = args.slice(0).join(' ');
+            
+            if (!bug) {
+                message.channel.send('You are attempting to send a bug report without listing a bug!')
+            } else {
+                client.fetchUser(myID).then((user) => {
+                    user.send(`${person} of ${message.guild.name} (Guild ID: ${message.guild.id}, User ID: ${userID}) reported the bug: ${bug}`);
+                });
+                message.channel.send('**Your bug was reported. If you abuse this feature you will be put on a blacklist and will be prevented from using this command.**');
+            };
+        };
+    };
+});
 
 client.login(client.config.discord.token);
