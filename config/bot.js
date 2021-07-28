@@ -8,7 +8,7 @@ module.exports = {
     },
 
     discord: {
-        token: 'NzU3NjU2MDczNjU3MjUzOTI5.X2jkNA.Klv3rUrQso9YoVlhvn-FCGNo-ZY',
+        token: '',
         LOCALE: 'en',
         prefix: ',',
         activity: 'Prefix - t!',
