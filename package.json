@@ -12,6 +12,7 @@
     "@discord-player/extractor": "^2.0.2",
     "@discord-player/downloader": "^2.0.4",
     "@discordjs/opus": "^0.3.3",
+    "mongoose": "^5.10.3",
     "discord-buttons": "^2.4.1",
     "ytdl-core": "^4.9.0",
     "discord-player": "^4.1.4",
