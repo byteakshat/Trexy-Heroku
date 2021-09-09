@@ -36,6 +36,11 @@ client.commands = new discord.Collection();
 fs.readdirSync('./commands').forEach(dirs => {
     const commands = fs.readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'));
  
+ const prefix = require('./models/prefix');
+
+mongoose.connect('mongodb+srv://vexadmin:sepcco74@greetings.4xyc2.mongodb.net/welcomeandprefix?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then(console.log('Connected to MongoDB!'))
+
+ 
 client.on('message', async (message) => {
     if (message.author.bot) return;
 
