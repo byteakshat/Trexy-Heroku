@@ -35,13 +35,30 @@ client.commands = new discord.Collection();
 
 fs.readdirSync('./commands').forEach(dirs => {
     const commands = fs.readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'));
+ 
+client.on('message', async (message) => {
+    if (message.author.bot) return;
 
-    for (const file of commands) {
+    //Getting the data from the model
+    const data = await prefix.findOne({
+        GuildID: message.guild.id
+    });
+
+    //If there was a data, use the database prefix BUT if there is no data, use the default prefix which you have to set!
+    if(data) {
+        const prefix = data.Prefix;
+     
+      for (const file of commands) {
         const command = require(`./commands/${dirs}/${file}`);
         console.log(`Loading command ${file}`);
         client.commands.set(command.name.toLowerCase(), command);
-    };
-});
+      };
+    });
+    } else if (!data) {
+        //set the default prefix here
+        const prefix = client.config.discord.prefix;
+    }
+})
 
 const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
